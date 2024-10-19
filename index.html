@@ -1,0 +1,148 @@
+<!-- RIBOSOMER index webpage-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- *********** To adapt the web page width to the users' device width : ****** -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
+
+<!-- ******************** Required for P5 tools ; ****************************** -->
+<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+<script language="javascript" src="libraries/p5.dom.js"></script>
+<script language="javascript" src="libraries/p5.sound.js"></script>
+
+<!-- <script src= "http://localhost:3000"></script> -->
+<!-- <script src= "http://localhost:8080"></script> -->
+<!-- ******************************************************************************* -->
+<!-- BELOW IS WHERE FIREBASE IS AUTHENTICATED as our database as service             -->
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  // connect to FIREBASE as a database service:
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // const instead of var:
+  const firebaseConfig = {
+    apiKey: "AIzaSyDXG3A9LZNt0YIDXpqCphwwWHfXsvcEgLU",
+    authDomain: "ribosomedigitaltwindb.firebaseapp.com",
+    databaseURL: "https://ribosomedigitaltwindb-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "ribosomedigitaltwindb",
+    storageBucket: "ribosomedigitaltwindb.appspot.com",
+    messagingSenderId: "433909121779",
+    appId: "1:433909121779:web:476c181d4f4380ea9d6d86",
+    measurementId: "G-4NF3167Q49"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+<!-- ******************************************************************************* -->
+<title>Ribosomer - TASEP for protein synthesis simulation platform</title>
+
+<link rel="stylesheet"
+	media="screen"
+ 	href="styles/Welcome_style0.css" />
+<!-- *******Load first style sheet for small and medium screens min 1024 < < max 1500 px **** -->
+<link rel="stylesheet"
+	media="screen and (min-width: 1024px) and (max-width: 1499px)"
+ 	href="styles/Welcome_style1.css" />
+	<!-- *******Load second style sheet for large screens >= 1500 px            ********** -->
+	<link rel="stylesheet"
+		media="screen and (min-width: 1500px)"
+	 	href="styles/Welcome_style2.css" />
+
+<style>
+.unorderedlist{
+	font-size: 17pt;
+}
+</style>
+</head>
+<body>
+<section id="holistic">
+	<header>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+          <li><a href="settings.html">Settings</a></li>
+					<li><a href="ribosomer.html">Ribosomer</a></li>
+          <li><a href="ribosomer.html">Ribo-Seq output</a></li>
+          <li><a href="proteinLevels.html">Protein levels</a></li>
+
+					<!-- <li><a href="TE.html">Tissue engineering and regenerative medicine</a></li> -->
+				</ul>
+			</nav>
+
+			<section>
+			<span id="box1">
+				Ribosomer - TASEP modeling platform for mRNA translation simulations
+			</span>
+			<span id="box2">
+				<!-- Home and contents -->
+			</span>
+			<span id="box3">
+			Ribo-Seq Predictor
+			</span>
+			</section>
+
+	</header>
+	 <!-- fin de entête -->
+	 <hr></hr>
+
+	<div>
+			<img class="tRNApicStyle" src="images/redOBStRNAsPTCcavity.png" alt="tRNAs" title="tRNAs at P and A sites showing PTC and mRNA."/>
+      <!--<img class="tRNApicStyle" src="images/tRNAwobbleU34.png" alt="tRNA wobble U34 in red" title="tRNA with colored anticodon"/> -->
+      <style>
+        .tRNApicStyle{
+          max-width:29%;
+          max-height:29%;
+          background-color: white;
+          float:left;
+        }
+      </style>
+	</div>
+
+	<nav>
+		<ul>
+      <li><a href="index.html">Home</a></li>
+			<li><a href="settings.html">Input data: mRNA sequences, tRNA abundance or rate table and ribosome resources settings</a></li>
+			<li><a href="ribosomer.html">Ribosomer: TASEP modeling bench</a></li>
+      <li><a href="riboSeqOutput.html">Ribo-Seq occupancy maps predictions</a></li>
+      <li><a href="proteinLevels.html">Relative protein levels and translation efficiency (TE) predictions</a></li>
+		</ul>
+	</nav>
+
+	<aside>
+		Welcome to the RIBOSOMER protein synthesis modeling bench, providing in-silico translatomics simulations,
+    predicting ribosome density profiles of your transcripts, protein relative expression levels,
+    pausing or stalling sites, translation efficiency using an extended Totally Asymmetric Simple Exclusion Process (TASEP) based on:
+      <ul class=unorderedlist>
+        <li>primary sequences of transcripts (and their codon usage) </li>
+        <li>relative abundance of transcripts (mRNA counts from RNA-Seq data) </li>
+        <li>possible non-uniform relative initiation rates of ribosomes on transcripts</li>
+        <li>tRNAs relative abundance in a given species or cell type expression vector with or without tRNA enzymatic modifications (e.g. N34 wobble base modifications)</li>
+        <li>ribosomal electrostatic interaction in the protein exit tunnel </li>
+        <li>transcript secondary structures </li>
+        <li>proline incorporation or stalling codon pairs events or EF-P/eIF5A elongation factor depletion </li>
+        <li>average initiation rate of ribosomes on transcripts </li>
+        <li>limited or unlimited ribosomes resources pool </li>
+      </ul>
+	</aside>
+	<hr></hr>
+	<footer>
+			<aside>
+			<img style="border:0 ;width :88px ; height:31px"
+			src="images/vcss-blue.gif" alt="CSS Valide !" title="CSS3 validation sign"/>
+		  </aside>
+					<!--  <a href="http://jigsaw.w3.org/css-validator/check/referer">  -->
+					<!--  src="http://jigsaw.w3.org/css-validator/images/vcss-blue" -->
+					<!-- <a href="images/vcss-blue.gif"> -->
+
+		   <span> © 2023 Marc Joiret - Last update: May 2nd, 2024</span>
+	</footer>
+</section>
+</body>
+</html>

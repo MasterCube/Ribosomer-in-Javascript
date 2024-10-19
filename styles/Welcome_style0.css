@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+section#holistic{
+	/*position: absolute;*/
+	/*width: 1500px;*/
+	/*height: 600px; */
+	/*left: 50%;
+	margin-left: -750px;*/
+	margin-top: 10px;
+	background-color: white;
+	border:none;
+}
+/* Styles for the header */
+
+header nav{
+	/*width: 1500px ; height:100px ; border: none ; background: magenta;
+	/*display: -webkit-flex; /* pour chrome*/
+	float: right;
+	width: 100%;
+	/*height: 90px;*/
+	padding: 0px;
+	margin: -20px;
+	list-style: none;
+	background: white;
+	font-family: Calibri, sans-serif ;
+	font-size:1.2em ;
+	text-align: left;  /*align: right;*/
+	/*float: right;*/
+}
+
+header nav ul li{
+	display: inline;
+	padding-left:10px;
+	padding-right: 10px;
+	/*border-right: 1px solid #333;*/
+	border-right: none;
+}
+header nav ul li:last-child{
+	border-right: none;
+}
+header nav ul li a{
+	/*font-weight:light;*/
+	text-decoration:none;
+	color: #191970;
+}
+header nav ul li a:hover{
+	color: #8282e3;
+	text-decoration: underline;
+}
+header section {
+  /*position: absolute;
+	width: 1500px;
+	left: 50%;*/
+	/*margin-left: -750px;*/
+	/*margin-top: 10px;*/
+	display: -webkit-flex-direction: column; /* pour chrome*/
+	margin: 5px;
+	border: none;
+	background: white;
+	/*position:relative;*/
+	/*width: 100% ; height: 68px ; border: none ; background: white*/
+}
+span{
+	padding: 8px;
+	color: #4b0082; /* #404040 */
+	border: none;
+	background: white;
+}
+#box1{
+	/*position: absolute;*/
+	/*top: 0px;*/
+	/*left: 0px;*/
+	/*color:#404040; background:white;*/
+	color: #4b0082; /* #404040 */
+	-webkit-flex: 4;
+	flex: 4;
+	font-family:Calibri, sans-serif ; font-size : 2.2em;
+}
+#box2{
+	-webkit-flex: 1;
+	flex: 1;
+	color:#4b0082; background:white;
+	font-family:Calibri, sans-serif ; font-size : 1.5em;
+}
+#box3{
+	/*position: absolute;*/
+	/*top: 0px;*/
+	/*right: 0px;*/
+	/*height: 60 px;*/
+	-webkit-flex: 1;
+	flex: 1;
+	float: right;
+	background: white;
+	font-family:Calibri, sans-serif ; font-size : 1.5em;
+	/*padding: 6px;*/
+}
+
+header a:hover { color: gray}
+
+/* Horizontal separator at the bottom of the header*/
+header hr { background: #dadeea ; width: 100% ; height: 6px ;text-align: center ; border:none }
+
+
+
+div img { background : oldLace; float:left}
+
+/* Styles for the navigation zone */
+nav { background: lightgrey; float: right; padding-left: 2em ; font-family: Calibri, sans-serif ; font-size:1.4em ;
+		/*width:1010px ;*/  border:none }
+nav a {
+	text-decoration: none;
+	color: #404040 /*black shaded*/
+}
+nav ul { padding:10px }
+
+nav a:hover {
+	color: white
+}
+
+
+/* Styles for the aside zone */
+aside { padding-top: 1em ; float: right; color: #191970; font-family: Calibri, sans-serif ; font-size: 1.6em }
+/* font-family: Calibri, sans-serif */
+
+/* Horizontal separator*/
+hr { background: #dadeea ; width: 100% ; height: 6px ;text-align: center ; border:none}
+/* Styles for footer */
+footer { clear: both; padding-top: 0em; background: white; color: gray ; font-family: Calibri, sans-serif ;
+		font-size: 1em;}
+
+footer aside{
+	float:left;
+	padding-top: 0.5em;
+}
+
+footer span {
+	padding-top: 1em;
+	float:right;
+	text-decoration: none;
+	background: white;
+	color: gray;
+	font-family: Calibri, sans-serif ;
+	font-size: 1em;
+}

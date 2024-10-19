@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribosomer</title> <!--p5.js example  -->
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="libraries/p5.sound.js"></script>
+    <script src="scripts/riboSeq_sketch.js"></script>
+    <!-- ******************************************************************************* -->
+    <!-- <script type="text/javascript" async src="MathJax-2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+    <!-- *************************************************************************** -->
+    <!-- <script src="scripts/sketch.js"></script> -->
+    <!--<script src="scripts/objectsClasses.js"></script> -->
+    <!-- <script src="scripts/sketch.js"></script> -->
+    <!--<script src="scripts/settings_sketch.js"></script> -->
+
+    <!-- <img src= "http://localhost:3000"> -->
+    <!-- <img src= "http://192.168.56.1:8080">
+    <img src= "http://192.168.1.20:8080">>
+    <img src= "http://127.0.0.1:8080">
+    <img src= "http://localhost:8080"> -->
+    <!--  <script src="node_modules/random-js/dist/random-js.esm.js"></script> -->
+    <script src="libraries/jstat/dist/jstat.js"></script>
+    <script src="libraries/jstat/dist/jstat.min.js"></script>
+        <!-- ******************************************************************************* -->
+
+    <!-- ******************************************************************************* -->
+
+    <title>Ribosomer - TASEP for protein synthesis simulation platform</title>
+
+    <link rel="stylesheet"
+    	media="screen"
+     	href="styles/Welcome_style0.css" />
+    <!-- *******Load first style sheet for small and medium screens min 1024 < < max 1500 px **** -->
+    <link rel="stylesheet"
+    	media="screen and (min-width: 1024px) and (max-width: 1499px)"
+     	href="styles/Welcome_style1.css" />
+    	<!-- *******Load second style sheet for large screens >= 1500 px            ********** -->
+    	<link rel="stylesheet"
+    		media="screen and (min-width: 1500px)"
+    	 	href="styles/Welcome_style2.css" />
+
+      <!-- Specific style elements for this page: -->
+      <style>
+      #myLocalStorageContainer{
+				width=100%;
+				/*width: 1320px;*/
+				height: 25px; /*96px*/
+				padding: 10px; /*4px*/
+				border-style: solid;
+				border-color: black;
+				font-family: Open sans, sans-serif; /* font-family: Open sans, sans-serif; */
+				font-size: 16;
+				font-style: normal;/*Helvetica  normal */
+				/*line-height: 18;*/
+				text-align: left; /*, text-justify:inter-word; center*/
+				background-color: #CD7D6B;/*#DCDCDC */
+				color: white;
+				position: relative;
+			}
+      #dropzone2LSretrieve{
+				padding:12px;
+				/* font-family: Calibri; */
+				font-family: Helvetica;
+				text-align: center;
+				font-size: 16pt;
+				border-style: dashed;
+				width=100%;
+				height: 46px;
+				background-color: #B4B4B4;/*#B4B4B4   #BC8F8F*/
+			}
+      #myButtonContainer{
+				width=100%;
+				/*width: 1320px;*/
+				height: 76px; /*96px*/
+				padding: 10px; /*4px*/
+				border-style: solid;
+				border-color: black;
+				font-family: Open sans, sans-serif; /* font-family: Open sans, sans-serif; */
+				font-size: 16;
+				font-style: normal;/*Helvetica  normal */
+				/*line-height: 18;*/
+				text-align: left; /*, text-justify:inter-word; center*/
+				background-color: #CD7D6B;/*#DCDCDC */
+				color: white;
+				position: relative;
+			}
+
+      </style>
+
+  </head>
+  <body>
+    <section id="holistic">
+    	<header>
+    			<nav>
+    				<ul>
+    					<li><a href="index.html">Home</a></li>
+              <li><a href="settings.html">Settings</a></li>
+    					<li><a href="ribosomer.html">Ribosomer</a></li>
+              <li><a href="riboSeqOutput.html">Ribo-Seq output</a></li>
+              <li><a href="proteinLevels.html">Protein levels</a></li>
+
+    					<!-- <li><a href="TE.html">Tissue engineering and regenerative medicine</a></li> -->
+    				</ul>
+    			</nav>
+
+    			<section>
+    			<span id="box1">
+    				Ribosomer - TASEP modeling platform for mRNA translation simulations
+    			</span>
+    			<span id="box2">
+    				<!-- Home and contents -->
+    			</span>
+    			<span id="box3">
+    			Translation bench
+    			</span>
+    			</section>
+
+    	</header>
+    	 <!-- fin de entête -->
+    	 <hr></hr>
+    <h1 class="header1style"> Ribo-Seq output: predicted ribosome occupancy maps (predicted ribosomes footprint on transcripts at codon resolution)</h1>
+<!--
+    <p id=tRNAHere>
+    </p>
+-->
+    <p id="myLocalStorageContainer">
+      Save the current local storage (LS) simulation results in a back up file. Click button to save LS:
+    </p>
+    <p id="dropzone2LSretrieve">
+      Drop a previous Local Storage file here to retrieve and display previous simulation <br> results from a back-up local storage file.
+    </p>
+
+    <p id="myButtonContainer">
+      Enter the gene/transcript tag name ID for which you want the predicted ribosome occupancy map displayed:
+    <br><br>
+      Click the button(s) to select (GREEN)  or not (RED) the desired display mode for the predicted Ribo-Seq profile:
+    </p>
+
+    <p id="canvasRiboSeq">
+      <!--Predicted Ribosome Occupancy Map -->
+<!--
+      <button id="loadfile"> load your Fasta format transcripts
+        file (CDS orf only)
+      </button>
+-->
+    </p>
+  </body>
+  <style>
+    .header1style{
+      font-family: Calibri;
+      /* font-family: Lucida Console; */
+      /* font-family: Helvetica; */
+      /* font-family: sans-serif; */
+      font-size:24px;
+      padding: 5px;
+      background-color: white;
+      color: coral;
+    }
+
+    /* #tRNAHere{
+      padding: 2px;
+      background-color: white;
+    } */
+  </style>
+</html>

@@ -1,0 +1,95 @@
+
+
+
+// find max of the two pdfs to be used to scale the plot as best as possible.
+var pdf_mod_max;
+var pdf_ref_max;
+pdf_mod_max = pdf_mod.max();
+pdf_ref_max = pdf_ref.max();
+var ySup_pdf = max(pdf_mod_max, pdf_ref_max);
+
+
+function decode(codon){
+  // This function receives a codon in argument as a 3 letter string.
+  // This function returns the corresponding decoded amino acid
+  // (called 'residue') using the standard genetic code.
+  // Standard genetic code defined once and for all as a 3D array:
+  // A, C, G, U maps 0, 1, 2, 3 indexes: GenetiCode[0][0][0] = K Lysine decoded by AAA...
+  GenetiCode[0][0][0] = 'K'; // lysine Lys (AAA)
+  GenetiCode[0][0][1] = 'N'; // asparagine Asn (AAC)
+  GenetiCode[0][0][2] = 'K'; // lysine Lys (AAG)
+  GenetiCode[0][0][3] = 'I'; // isoleucine Ile (AAU)
+  GenetiCode[0][1][0] = 'T'; // threonine Thr (ACA)
+  GenetiCode[0][1][1] = 'T'; // threonine Thr (ACC)
+  GenetiCode[0][1][2] = 'T'; // threonine Thr (ACG)
+  GenetiCode[0][1][3] = 'T'; // threonine Thr (ACU)
+  GenetiCode[0][2][0] = 'R'; // arginine Arg (AGA)
+  GenetiCode[0][2][1] = 'S'; // serine Ser (AGC)
+  GenetiCode[0][2][2] = 'R'; // arginine Arg (AGG)
+  GenetiCode[0][2][3] = 'S'; // serine Ser (AGU)
+  GenetiCode[0][3][0] = 'I'; // isoleucine Ile (AUA)
+  GenetiCode[0][3][1] = 'I'; // isoleucine Ile (AUC)
+  GenetiCode[0][3][2] = 'M'; // methionine Met (AUG) --> START
+  GenetiCode[0][3][3] = 'I'; // isoleucine Ile (AUU)
+  GenetiCode[1][0][0] = 'Q'; // glutamine Gln (CAA)
+  GenetiCode[1][0][1] = 'H'; // histidine His (CAC)
+  GenetiCode[1][0][2] = 'Q'; // glutamine Gln (CAG)
+  GenetiCode[1][0][3] = 'H'; // histidine His (CAU)
+  GenetiCode[1][1][0] = 'P'; // proline Pro (CCA)
+  GenetiCode[1][1][1] = 'P'; // proline Pro (CCC)
+  GenetiCode[1][1][2] = 'P'; // proline Pro (CCG)
+  GenetiCode[1][1][3] = 'P'; // proline Pro (CCU)
+  GenetiCode[1][2][0] = 'R'; // arginine Arg (CGA)
+  GenetiCode[1][2][1] = 'R'; // arginine Arg (CGC)
+  GenetiCode[1][2][2] = 'R'; // arginine Arg (CGG)
+  GenetiCode[1][2][3] = 'R'; // arginine Arg (CGU)
+  GenetiCode[1][3][0] = 'L'; // leucine Leu (CUA)
+  GenetiCode[1][3][1] = 'L'; // leucine Leu (CUC)
+  GenetiCode[1][3][2] = 'L'; // leucine Leu (CUG)
+  GenetiCode[1][3][3] = 'L'; // leucine Leu (CUU)
+  GenetiCode[2][0][0] = 'E'; // glutamate Glu (GAA)
+  GenetiCode[2][0][1] = 'D'; // aspartate Asp (GAC)
+  GenetiCode[2][0][2] = 'E'; // glutamate Glu (GAG)
+  GenetiCode[2][0][3] = 'D'; // aspartate Asp (GAU)
+  GenetiCode[2][1][0] = 'A'; // alanine Ala (GCA)
+  GenetiCode[2][1][1] = 'A'; // alanine Ala (GCC)
+  GenetiCode[2][1][2] = 'A'; // alanine Ala (GCG)
+  GenetiCode[2][1][3] = 'A'; // alanine Ala (GCU)
+  GenetiCode[2][2][0] = 'G'; // glycine Gly (GGA)
+  GenetiCode[2][2][1] = 'G'; // glycine Gly (GGC)
+  GenetiCode[2][2][2] = 'G'; // glycine Gly (GGG)
+  GenetiCode[2][2][3] = 'G'; // glycine Gly (GGU)
+  GenetiCode[2][3][0] = 'V'; // valine Val (GUA)
+  GenetiCode[2][3][1] = 'V'; // valine Val (GUC)
+  GenetiCode[2][3][2] = 'V'; // valine Val (GUG)
+  GenetiCode[2][3][3] = 'V'; // valine Val (GUU)
+  GenetiCode[3][0][0] = 'stop'; // STOP (UAA) --> STOP
+  GenetiCode[3][0][1] = 'Y'; // thyrosine Tyr (UAC)
+  GenetiCode[3][0][2] = 'stop'; // STOP (UAG) --> STOP
+  GenetiCode[3][0][3] = 'Y'; // thyrosine Tyr (UAU)
+  GenetiCode[3][1][0] = 'S'; // serine Ser (UCA)
+  GenetiCode[3][1][1] = 'S'; // serine Ser (UCC)
+  GenetiCode[3][1][2] = 'S'; // serine Ser (UCG)
+  GenetiCode[3][1][3] = 'S'; // serine Ser (UCU)
+  GenetiCode[3][2][0] = 'stop'; // STOP (UGA) --> STOP
+  GenetiCode[3][2][1] = 'C'; // cysteine Cys (UGC)
+  GenetiCode[3][2][2] = 'W'; // Tryptophan Trp (UGG)
+  GenetiCode[3][2][3] = 'C'; // cysteine Cys (UGU)
+  GenetiCode[3][3][0] = 'L'; // leucine Leu (UUA)
+  GenetiCode[3][3][1] = 'F'; // phenylalanine Phe (UUC)
+  GenetiCode[3][3][2] = 'L'; // leucine Leu (UUG)
+  GenetiCode[3][3][3] = 'F'; // phenylalanine Phe (UUU)
+  var i, j, k;
+  var FirstLetter, SecondLetter, ThirdLetter;
+  var alphabet = "ACGU";
+  var residue;
+  FirstLetter = codon.substring(0, 1);
+  SecondLetter = codon.substring(1, 2);
+  ThirdLetter = codon.substring(2, 3);
+  i = alphabet.indexOf(FirstLetter);
+  j = alphabet.indexOf(SecondLetter);
+  k = alphabet.indexOf(ThirdLetter);
+  residue = GenetiCode[i][j][k];
+  return residue;
+}
+  
