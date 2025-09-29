@@ -1,0 +1,19 @@
+// protein_sketch
+
+function setup(){
+
+}
+function draw(){
+  // display the current value of the clock:
+  fill(0);
+  stroke(235);
+  textSize(16);//24
+  textAlign(LEFT);
+  textFont("Helvetica"); //Helvetica, Georgia, Courrier new ?
+  push();
+  var time_running = millis();
+  var time_minutes = floor(time_running/(1000*60));
+  var time_seconds = int((time_running/1000) % 60);
+  text("Time running:"+nfs(time_minutes, 3, 0)+" min:"+nfs(time_seconds, 2, 0)+" sec.", 7, 17);
+  pop();
+  }
