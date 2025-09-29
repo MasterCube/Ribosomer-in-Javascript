@@ -8,7 +8,7 @@ enforce dynamical displays on html pages.
 
 To have an overall introduction to the functions and motivations of this simulation tool, the reader is 
 invited to read the PhD thesis attached in this repository and entitled 'Protein synthesis by ribosomes, an 
-agent-based model of mRNA translation rate incorporating tRNA modifications effects'.
+agent-based model of mRNA translation rate incorporating tRNA modification effects'.
 
 This repository contains all the directories and files that are necessary to conduct protein synthesis simulation by a pool 
 of ribosomes on any transcriptome set that the user can provide as data input.
